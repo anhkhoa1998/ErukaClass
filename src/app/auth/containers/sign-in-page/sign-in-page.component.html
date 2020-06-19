@@ -1,3 +1,8 @@
-<app-sign-in-form [name]="bien_2" (ten_2)="layten($event)"></app-sign-in-form>
+<div class="sign-in-container d-flex align-items-center justify-content-center">
+  <div class="col-7 row">
+    <img src="assets/work.gif" class="col-8 p-0">
+    <app-sign-in-form class="col-4 p-0" (saveSignInInfor)="signIn($event)"></app-sign-in-form>
+  </div>
+</div>
 
-<p>{{bien_1}}</p>
+

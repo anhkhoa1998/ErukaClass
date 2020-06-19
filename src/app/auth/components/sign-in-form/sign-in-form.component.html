@@ -1,2 +1,31 @@
-<p>{{name}}</p>
-<button type="button" (click)="save()" title="asdasds"> </button>
+<div class="form-contain p-2">
+  <div style="margin-left: 20px">
+    <p class="form-name">Sign In</p>
+    <form class="form-main" [formGroup]="rfUser" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field appearance="outline" class="col-12 p-0">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Enter your username" formControlName="username">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Your username</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline" class="col-12 p-0">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <div>
+        <button mat-raised-button color="primary" type="submit">Sign In</button>
+      </div>
+    </form>
+    <div class="form-footer">
+      <a href="#"> Forgot password ?</a>
+      <a href="#"> More information</a>
+    </div>
+  </div>
+</div>

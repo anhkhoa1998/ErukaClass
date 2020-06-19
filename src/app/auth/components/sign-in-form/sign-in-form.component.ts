@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SignIn } from '../../models/auth.model';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -6,22 +8,27 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./sign-in-form.component.css']
 })
 export class SignInFormComponent implements OnInit {
-  @Input() name: string;
-  asdss: string;
-  @Output() saveName = new EventEmitter();
-  ten_1:string;
-  @Output() ten_2=new EventEmitter();
-  constructor() { }
+  @Output() saveSignInInfor = new EventEmitter();
+  signInInfor: SignIn = {
+    username: '',
+    password: '',
+  };
+  hide = true;
+  rfUser: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.rfUser = this.fb.group({
+      username: this.fb.control('', [Validators.required, Validators.minLength(6)]),
+      password: this.fb.control('', [Validators.required, Validators.minLength(6)])
+    });
+  }
 
   ngOnInit(): void {
   }
-  saveasd(){
-    this.asdss = 'agk';
-    this.saveName.emit(this.asdss);
-  }
-  save()
-  {
-    this.ten_1="Liem HN";
-    this.ten_2.emit(this.ten_1)
+
+  submit() {
+    this.signInInfor.username = this.rfUser.get('username').value;
+    this.signInInfor.password = this.rfUser.get('password').value;
+    this.saveSignInInfor.emit(this.signInInfor);
   }
 }
