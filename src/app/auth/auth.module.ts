@@ -10,6 +10,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services';
 import { AuthGuard } from './guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule,
+    MatButtonModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {
