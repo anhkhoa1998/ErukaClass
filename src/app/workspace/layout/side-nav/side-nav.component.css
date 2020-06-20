@@ -1,0 +1,39 @@
+.main-nav {
+  background-color: #6983aa;
+  height: 100%;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+.student-info {
+  height: 25%;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.student-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.student-name {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 400;
+}
+.route-nav {
+  border-radius: 10px;
+  margin-top: 15px;
+  background-color: #f4f4f4;
+  height: 70%;
+  padding: 10px 5px;
+}
+.route-group {
+  border-radius: 10px;
+  border: 1px solid #8566aa;
+  margin-top: 10px;
+  text-align: center;
+}
