@@ -13,6 +13,11 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { authFeatureKey } from './reducer';
+import { AuthEffect } from './effect/auth.effect';
+import { EffectsModule } from '@ngrx/effects';
+import { authReducer } from './reducer/auth.reducer';
 
 
 @NgModule({
@@ -30,6 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatButtonModule,
     ReactiveFormsModule,
+    StoreModule.forFeature(authFeatureKey, authReducer),
+    EffectsModule.forFeature([AuthEffect]),
   ],
   providers: [
     {
